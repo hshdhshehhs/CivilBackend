@@ -51,7 +51,7 @@
                     mode: "cors",
                     method: "GET"
                 }).then(e => {
-                    if (!e.ok) throw Error("Unable to find a match for response status");
+                    if (!e.ok) throw Error(`Unable to find a match for response status: ${e.status}`);
                     return e.text();
                 }).then(e => {
                     let t = new DOMParser,
