@@ -47,10 +47,10 @@
             });
             const getSearchSuggestions = e => {
                 let t = `https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(e)}`;
-                return fetch(t, ({mode:"cors"}), {
+                return fetch(t, {
+                    mode: "cors",
                     method: "GET",
                     headers: {
-                        "Origin": window.location.origin,
                         "Access-Control-Allow-Origin": "*"
                     }
                 }).then(e => {
