@@ -61,5 +61,81 @@ body
                 transform: scale(1.14);
             }
         }
+        .searchbar
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            background-color: #b2f1dcdc;
+            border-radius: 35px;
+            width: 60%;
+            height: 4vh;
+            .urlInput
+            {
+                padding-left: 10%;
+                background: linear-gradient(to right, #a8ff78, #78ffd6);
+                border-radius: 45px;
+                border: none;
+                color: #333;
+                font-size: 14px;
+                font-weight: 400;
+                text-transform: lowercase;
+                font-family: 'Alata', sans-serif;
+                width: 100%;
+                height: 4vh;
+                &:focus
+                {
+                    outline: none;
+                }
+                &::placeholder
+                {
+                    color: #333;
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-transform: lowercase;
+                    font-family: 'Alata', sans-serif;
+                }
+            }
+        }
+    }
+    .suggestions
+    {
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        top: 17vh;
+        left: 374px;
+        background-color: #d7e4e4c0;
+        backdrop-filter: blur(15px);
+        border-radius: 45px;
+        -webkit-backdrop-filter: blur(15px);
+        width: 60%;
+        height: 40vh;
+        z-index: 999;
+        li
+        {
+            list-style: none;
+            a 
+            {
+                padding: 12px;
+                text-align: center;
+                background-color: #444;
+                color: #78ffd6;
+                font-size: 32px;
+                font-weight: 400;
+                font-family: 'Alata', sans-serif;
+                width: 100%;
+                height: 40px;
+                transition: background-color 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+                cursor: default;
+                &:hover
+                {
+                    background-color: #a8ff78;
+                }
+            }
+        }
     }
 }

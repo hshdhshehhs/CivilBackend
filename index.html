@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Civil Proxy</title>
-        <script src="https://coffeescript.org/v2/browser-compiler-modern/coffeescript.js"></script>
         <link rel="stylesheet" type="text/css" href="./main.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +14,55 @@
     <body>
         <div class="header">
             <a href="/">Civil<h2 class="logo">Proxy</h2></a>
+
+            <div class="searchbar">
+                <input type="text" placeholder="Search" class="urlInput">
+            </div>
         </div>
+
+        <ul class="suggestions"></ul>
+
+        <script type="text/javascript">
+            const DEBOUNCE_DELAY = 300;
+            let debounceTimeout;
+            const urlInput = document.querySelector(".urlInput"),
+                suggestionsMenu = document.querySelector(".suggestions");
+            urlInput.addEventListener("input", () => {
+                let e = urlInput.value.trim();
+                if (e.startsWith("http://") || e.startsWith("https://")) {
+                    suggestionsMenu.textContent = e;
+                    return
+                }
+                clearTimeout(debounceTimeout), debounceTimeout = setTimeout(() => {
+                    getSearchSuggestions(e).then(e => {
+                        suggestionsMenu.innerHTML = "", suggestionsMenu.innerHTML = e.map(e => `<li><a>${e}</a></li>`).join(""), suggestionsMenu.addEventListener("click", e => {
+                            if ("A" === e.target.tagName) {
+                                let t = document.createElement("iframe"),
+                                    n = `https://www.google.com/search?q=${encodeURIComponent(e.target.textContent)}`;
+                                t.src = n, t.style.alignSelf = "center", t.style.height = "25%", t.style.width = "90%", t.style.border = "none", t.style.borderRadius = "45px", document.body.appendChild(t)
+                            }
+                        })
+                    })
+                }, DEBOUNCE_DELAY)
+            });
+            const getSearchSuggestions = e => {
+                let t = `https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(e)}`;
+                return fetch(t, {
+                    method: "GET",
+                    headers: {
+                        "Origin": window.location.origin,
+                        "Access-Control-Allow-Origin": window.location.origin
+                    }
+                }).then(e => {
+                    if (!e.ok) throw Error("Unable to find a match for response status");
+                    return e.text();
+                }).then(e => {
+                    let t = new DOMParser,
+                        n = t.parseFromString(e, "text/xml"),
+                        s = Array.from(n.getElementsByTagName("suggestion")).map((suggestion) => suggestion.getAttribute('data')).slice(0, 10);
+                    return s
+                }).catch(e => (console.error(e), []));
+            };
+        </script>
     </body>
 </html>
