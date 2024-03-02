@@ -51,7 +51,7 @@
                     method: "GET",
                     headers: {
                         "Origin": window.location.origin,
-                        "Access-Control-Allow-Origin": window.location.origin
+                        "Access-Control-Allow-Origin": "*"
                     }
                 }).then(e => {
                     if (!e.ok) throw Error("Unable to find a match for response status");
