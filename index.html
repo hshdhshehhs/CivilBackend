@@ -46,12 +46,12 @@
                 }, DEBOUNCE_DELAY)
             });
             const getSearchSuggestions = e => {
-                let t = `https://cors-anywhere.herokuapp.com/https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(e)}`;
+                let t = `https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(e)}`;
                 return fetch(t, {
                     mode: "cors",
                     method: "GET",
                     headers: {
-                        "Origin": "*"
+                        "Access-Control-Allow-Origin": window.location.origin
                     }
                 }).then(e => {
                     if (!e.ok) throw Error(`Unable to find a match for response status: ${e.status}`);
