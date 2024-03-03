@@ -27,42 +27,69 @@
             let debounceTimeout;
             const urlInput = document.querySelector(".urlInput"),
                 suggestionsMenu = document.querySelector(".suggestions");
+
             urlInput.addEventListener("input", () => {
-                let e = urlInput.value.trim();
+                const e = urlInput.value.trim();
                 if (e.startsWith("http://") || e.startsWith("https://")) {
                     suggestionsMenu.textContent = e;
-                    return
+                    return;
                 }
-                clearTimeout(debounceTimeout), debounceTimeout = setTimeout(() => {
+                clearTimeout(debounceTimeout);
+                debounceTimeout = setTimeout(() => {
                     getSearchSuggestions(e)
-                        .then(e => {
-                            suggestionsMenu.innerHTML = "", suggestionsMenu.innerHTML = e.map(e => `<li><a>${e}</a></li>`).join(""), suggestionsMenu.addEventListener("click", e => {
-                                if ("A" === e.target.tagName) {
-                                    let t = document.createElement("iframe"),
-                                        n = `https://www.google.com/search?q=${encodeURIComponent(e.target.textContent)}`;
-                                    t.src = n, t.style.alignSelf = "center", t.style.height = "25%", t.style.width = "90%", t.style.border = "none", t.style.borderRadius = "45px", document.body.appendChild(t)
-                                }
-                            })
+                        .then((e) => {
+                            suggestionsMenu.innerHTML = "";
+                            if (e.length) {
+                                suggestionsMenu.innerHTML = e
+                                    .map((el) => `<li><a>${el}</a></li>`)
+                                    .join("");
+                                suggestionsMenu.addEventListener(
+                                    "click",
+                                    (event) => {
+                                        if ("A" === event.target.tagName) {
+                                            let t = document.createElement("iframe"),
+                                                n = `https://www.google.com/search?q=${encodeURIComponent(
+                                            event.target.textContent
+                                        )}`;
+                                            t.src = n,
+                                                t.style.alignSelf = "center",
+                                                t.style.height = "25%",
+                                                t.style.width = "90%",
+                                                t.style.border = "none",
+                                                t.style.borderRadius = "45px",
+                                                document.body.appendChild(t);
+                                        }
+                                    }, {
+                                        once: true
+                                    }
+                                );
+                            }
                         })
-                }, DEBOUNCE_DELAY)
+                        .catch((error) => console.error(error));
+                }, DEBOUNCE_DELAY);
             });
-            const getSearchSuggestions = e => {
-                fetch(`https://cors-anywhere.herokuapp.com/${encodeURIComponent(`https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(e)}`)}`, {
+
+            const getSearchSuggestions = (e) =>
+                fetch(`https://cors-anywhere.herokuapp.com/https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(
+                            e
+                        )}`, {
                     mode: "cors",
                     method: "GET",
-                    headers: {
-                        "Access-Control-Allow-Origin": "*"
-                    }
-                }).then(e => {
-                    if (!e.ok) throw Error(`Unable to find a match for response status: ${e.status}`);
-                    return e.text();
-                }).then(e => {
-                    let t = new DOMParser,
-                        n = t.parseFromString(e, "text/xml"),
-                        s = Array.from(n.getElementsByTagName("suggestion")).map((suggestion) => suggestion.getAttribute('data')).slice(0, 10);
-                    return s;
-                }).catch(e => (console.error(e), []));
-            };
+                })
+                .then((res) => {
+                    if (!res.ok) throw Error(`Unable to find a match for response status: ${res.status}`);
+                    return res.text();
+                })
+                .then((data) => {
+                    let parser = new DOMParser(),
+                        xmlDoc = parser.parseFromString(data, "text/xml"),
+                        suggestions = [];
+
+                    for (let i = 0; i < xmlDoc.getElementsByTagName("suggestion").length; i++) suggestions.push(xmlDoc.getElementsByTagName("suggestion")[i].getAttribute("data"));
+
+                    return suggestions.slice(0, 10);
+                })
+                .catch((error) => (console.error(error), []));
         </script>
     </body>
 </html>
