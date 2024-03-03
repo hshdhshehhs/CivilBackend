@@ -139,7 +139,7 @@ body
             }
         }
     }
-    iframe
+    .ggIf
     {
         position: absolute;
         display: none;

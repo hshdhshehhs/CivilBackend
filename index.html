@@ -20,7 +20,9 @@
             </div>
         </div>
 
-        <iframe src="about:blank" width="20%" height="40%" class="ggIf"></iframe>
+        <ul class="suggestions"></ul>
+
+        <iframe src="" width="20%" height="40%" class="ggIf"></iframe>
 
         <script type="text/javascript">
             const urlInput = document.querySelector(".urlInput"),
@@ -48,8 +50,8 @@
                                     "click",
                                     (event) => {
                                         if ("A" === event.target.tagName) {
-                                            let t = document.querySelector('iframe');
-                                            t.src = event.target.href;
+                                            let t = document.querySelector('.ggIf');
+                                            t.src = `https://www.google.com/search?q=${encodeURIComponent(e)}`;
                                             t.style.display = 'block';
                                         }
                                     }, {
