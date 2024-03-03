@@ -73,7 +73,7 @@
             });
 
             const getSearchSuggestions = (e) =>
-                fetch(`https://cors-anywhere.herokuapp.com/https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(
+                fetch(`https://corsproxy.io/?https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(
                             e
                         )}`, {
                     mode: "cors",
