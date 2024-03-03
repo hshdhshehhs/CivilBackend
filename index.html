@@ -35,6 +35,7 @@
                     suggestionsMenu.textContent = e;
                     return;
                 }
+                if (e == "") suggestionsMenu.style.display = 'none';
                 clearTimeout(debounceTimeout);
                 debounceTimeout = setTimeout(() => {
                     getSearchSuggestions(e)
