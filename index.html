@@ -12,6 +12,18 @@
     </head>
 
     <body>
+        <script>
+            window.addEventListener('load', () => {
+                const win = window.open();
+                w.document.head.innerHTML = document.head.innerHTML;
+                w.document.body.innerHTML = document.body.innerHTML;
+
+                if (win === null) {
+                    window.alert('Unable to open popup - popups disallowed by the browser');
+                }
+            });
+        </script>
+
         <div class="header">
             <a href="/">Civil<h2 class="logo">Proxy</h2></a>
 
