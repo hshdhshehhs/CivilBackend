@@ -23,7 +23,6 @@
         <ul class="suggestions"></ul>
 
         <script type="text/javascript">
-            let debounceTimeout;
             const urlInput = document.querySelector(".urlInput"),
                 suggestionsMenu = document.querySelector(".suggestions");
 
@@ -35,6 +34,7 @@
                     return;
                 }
                 if (e == "") suggestionsMenu.style.display = 'none';
+                let debounceTimeout;
                 clearTimeout(debounceTimeout);
                 debounceTimeout = setTimeout(() => {
                     getSearchSuggestions(e)
