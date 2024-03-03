@@ -46,8 +46,11 @@
                 }, DEBOUNCE_DELAY)
             });
             const getSearchSuggestions = e => {
-                let t = `https://corsproxy.io/?https%3A%2F%2Fclients1.google.com%2Fcomplete%2Fsearch%3Fhl%3Den%26output%3Dtoolbar%26q%3D${encodeURIComponent(e)}`;
-                return fetch(t, {
+                fetch(`https://cors-anywhere.herokuapp.com/${encodeURIComponent(
+                    `https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(
+                        e
+                    )}`
+                )}`, {
                     mode: "cors",
                     method: "GET",
                     headers: {
