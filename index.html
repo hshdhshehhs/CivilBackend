@@ -53,7 +53,7 @@
                             suggestionsMenu.innerHTML = "";
                             if (e.length) {
                                 suggestionsMenu.innerHTML = e
-                                    .map((el) => `<li><a>${el}</a><i class="fa-solid fa-splotch" title="Open direct blob URL for: google.com/${encodeURIComponent(el)}"></i><i class="fa-solid fa-database" title="Open direct data URL for: google.com/${encodeURIComponent(el)}"></i><i class="fa-solid fa-magnifying-glass" title="Search Google for: ${el}"></i></li>`)
+                                    .map((el) => `<li><a>${el}</a><i class="fa-solid fa-magnifying-glass" title="Search Google for: ${el}"></i></li>`)
                                     .join("");
                                 suggestionsMenu.addEventListener(
                                     "click",
