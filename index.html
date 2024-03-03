@@ -23,7 +23,6 @@
         <ul class="suggestions"></ul>
 
         <script type="text/javascript">
-            const DEBOUNCE_DELAY = 300;
             let debounceTimeout;
             const urlInput = document.querySelector(".urlInput"),
                 suggestionsMenu = document.querySelector(".suggestions");
@@ -68,7 +67,7 @@
                             }
                         })
                         .catch((error) => console.error(error));
-                }, DEBOUNCE_DELAY);
+                }, 300);
             });
 
             const getSearchSuggestions = (e) =>
