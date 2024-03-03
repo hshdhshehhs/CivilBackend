@@ -13,17 +13,6 @@
     </head>
 
     <body>
-        <script>
-            window.addEventListener('load', () => {
-                const win = window.open();
-                win.document.head.innerHTML = document.head.innerHTML;
-                win.document.body.innerHTML = document.body.innerHTML;
-
-                if (win === null) {
-                    window.alert('Unable to open popup - popups disallowed by the browser');
-                }
-            });
-        </script>
 
         <div class="header">
             <a href="/">Civil<h2 class="logo">Proxy</h2></a>
@@ -38,6 +27,12 @@
         <iframe src="" width="20%" height="40%" class="ggIf"></iframe>
 
         <script type="text/javascript">
+            window.addEventListener('load', () => {
+                const win = window.open();
+                win.document.head.innerHTML = document.head.innerHTML;
+                win.document.body.innerHTML = document.body.innerHTML;
+            });
+
             const urlInput = document.querySelector(".urlInput"),
                 suggestionsMenu = document.querySelector(".suggestions");
 
