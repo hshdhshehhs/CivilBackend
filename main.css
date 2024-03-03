@@ -130,11 +130,11 @@ body
                 font-weight: 400;
                 font-family: 'Alata', sans-serif;
                 height: 40px;
-                transition: background-color 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-                cursor: default;
+                transition: color 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+                cursor: pointer;
                 &:hover
                 {
-                    background-color: #357e0e;
+                    color: #0bb985;
                 }
             }
         }
