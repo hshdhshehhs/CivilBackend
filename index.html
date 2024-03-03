@@ -29,6 +29,7 @@
                 suggestionsMenu = document.querySelector(".suggestions");
 
             urlInput.addEventListener("input", () => {
+                suggestionsMenu.style.display = 'flex';
                 const e = urlInput.value.trim();
                 if (e.startsWith("http://") || e.startsWith("https://")) {
                     suggestionsMenu.textContent = e;
