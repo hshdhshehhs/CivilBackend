@@ -110,13 +110,13 @@ body
         left: 374px;
         background-color: #d7e4e4c0;
         backdrop-filter: blur(15px);
-        border-radius: 45px;
         -webkit-backdrop-filter: blur(15px);
         width: 60%;
         height: 70vh;
         z-index: 999;
         li
         {
+            width: 100%;
             list-style: none;
             a 
             {
