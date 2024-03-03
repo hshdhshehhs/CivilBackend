@@ -34,27 +34,24 @@
                     return
                 }
                 clearTimeout(debounceTimeout), debounceTimeout = setTimeout(() => {
-                    getSearchSuggestions(e).then(e => {
-                        suggestionsMenu.innerHTML = "", suggestionsMenu.innerHTML = e.map(e => `<li><a>${e}</a></li>`).join(""), suggestionsMenu.addEventListener("click", e => {
-                            if ("A" === e.target.tagName) {
-                                let t = document.createElement("iframe"),
-                                    n = `https://www.google.com/search?q=${encodeURIComponent(e.target.textContent)}`;
-                                t.src = n, t.style.alignSelf = "center", t.style.height = "25%", t.style.width = "90%", t.style.border = "none", t.style.borderRadius = "45px", document.body.appendChild(t)
-                            }
+                    getSearchSuggestions(e)
+                        .then(e => {
+                            suggestionsMenu.innerHTML = "", suggestionsMenu.innerHTML = e.map(e => `<li><a>${e}</a></li>`).join(""), suggestionsMenu.addEventListener("click", e => {
+                                if ("A" === e.target.tagName) {
+                                    let t = document.createElement("iframe"),
+                                        n = `https://www.google.com/search?q=${encodeURIComponent(e.target.textContent)}`;
+                                    t.src = n, t.style.alignSelf = "center", t.style.height = "25%", t.style.width = "90%", t.style.border = "none", t.style.borderRadius = "45px", document.body.appendChild(t)
+                                }
+                            })
                         })
-                    })
                 }, DEBOUNCE_DELAY)
             });
             const getSearchSuggestions = e => {
-                fetch(`https://cors-anywhere.herokuapp.com/${encodeURIComponent(
-                    `https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(
-                        e
-                    )}`
-                )}`, {
+                fetch(`https://cors-anywhere.herokuapp.com/${encodeURIComponent(`https://clients1.google.com/complete/search?hl=en&output=toolbar&q=${encodeURIComponent(e)}`)}`, {
                     mode: "cors",
                     method: "GET",
                     headers: {
-                        "Access-Control-Allow-Origin": window.location.origin
+                        "Access-Control-Allow-Origin": "*"
                     }
                 }).then(e => {
                     if (!e.ok) throw Error(`Unable to find a match for response status: ${e.status}`);
@@ -63,7 +60,7 @@
                     let t = new DOMParser,
                         n = t.parseFromString(e, "text/xml"),
                         s = Array.from(n.getElementsByTagName("suggestion")).map((suggestion) => suggestion.getAttribute('data')).slice(0, 10);
-                    return s
+                    return s;
                 }).catch(e => (console.error(e), []));
             };
         </script>
