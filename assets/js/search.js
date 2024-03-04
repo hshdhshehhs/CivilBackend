@@ -56,8 +56,6 @@ urlInput.addEventListener("input", () => {
                                                     <i class="fa-solid fa-house"></i>
                                                 </div>
                                             `;
-
-                                        const frame = x.document.querySelector('.frame');
                                     }
                                 }, {
                                     once: true
