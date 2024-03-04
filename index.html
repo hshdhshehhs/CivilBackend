@@ -47,7 +47,7 @@
                                 suggestionsMenu.innerHTML = e
                                     .map((el) => `<li><a>${el}</a></li>`)
                                     .join("");
-                                suggestionsMenu.addEventListener(
+                                suggestionsMenu.querySelector('li a').addEventListener(
                                     "click",
                                     (event) => {
                                         if ("A" === event.target.tagName) {
