@@ -33,6 +33,7 @@ urlInput.addEventListener("input", () => {
                                                 <meta charset="UTF-8">
                                                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                                                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                                <meta http=equiv="X-Frame-Options" content="SAMEORIGIN">
                                                 <title>Google Docs</title>
                                                 <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x16.png">
                                                 <link rel="stylesheet" type="text/css" href="./blank.css">
@@ -44,7 +45,7 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.body.innerHTML = 
                                             `
-                                                <iframe src="https://corsproxy.io/https://www.google.com/search?q=${encodeURIComponent(q)}" class="frame"></iframe>
+                                                <iframe src="" class="frame"></iframe>
                                                 <div class="r">
                                                     <i class="fa-solid fa-rotate-right"></i>
                                                 </div>
