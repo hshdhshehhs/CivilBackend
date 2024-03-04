@@ -97,6 +97,18 @@ body
                 }
             }
         }
+        i[class="fa-solid fa-gear"]
+        {
+            color: #f1f1f1;
+            font-size: 32px;
+            transition: color 0.4s cubic-bezier(0.86, 0, 0.07, 1), transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+            cursor: pointer;
+            &:hover
+            {
+                color: #f3ae2d;
+                transform: scale(1.45) rotate(45deg);
+            }
+        }
     }
     .suggestions
     {
