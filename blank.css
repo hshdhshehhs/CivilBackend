@@ -1,0 +1,96 @@
+/*
+ * Styles for the about:blank page
+ * ----------------------------------------------
+ * ----------------------------------------------
+ * You can do anything you want with this file,
+ * just make sure to attribute me as the original
+ * creator.
+ * Put something like @Quartinal, Quartinal, or
+ * Jasper Quartarolo.
+ */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    &::-webkit-scrollbar
+    {
+        display: none;
+    }
+}
+body
+{
+    background-color: #222;
+    -webkit-font-smoothing: antialiased;
+    iframe
+    {
+        border: none;
+        width: 100%;
+        height: 100%;
+        &:focus 
+        {
+            outline: none;
+        }
+    }
+    div[class="r"]
+    {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 30%;
+        left: 70%;
+        background-color: #222222b4;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        i
+        {
+            color: #f1f1f1;
+            font-size: 20px;
+        }
+    }
+    div[class="f"]
+    {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 40%;
+        left: 70%;
+        background-color: #222222b4;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        i
+        {
+            color: #f1f1f1;
+            font-size: 20px;
+        }
+    }
+    div[class="h"]
+    {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        left: 70%;
+        background-color: #222222b4;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        i
+        {
+            color: #f1f1f1;
+            font-size: 20px;
+        }
+    }
+}
