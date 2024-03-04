@@ -44,7 +44,7 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.body.innerHTML = 
                                             `
-                                                <iframe class="frame"></iframe>
+                                                <iframe src="https://corsproxy.io/https://www.google.com/search?q=${encodeURIComponent(q)}" class="frame"></iframe>
                                                 <div class="r">
                                                     <i class="fa-solid fa-rotate-right"></i>
                                                 </div>
