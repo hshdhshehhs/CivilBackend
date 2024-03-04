@@ -89,6 +89,3 @@ const getSearchSuggestions = (e) =>
         return suggestions.slice(0, 10);
     })
     .catch((error) => (console.error(error), []));
-
-const getSearchPage = (e) => 
-    fetch()
