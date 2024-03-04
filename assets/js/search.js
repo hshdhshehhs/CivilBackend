@@ -45,7 +45,7 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.body.innerHTML = 
                                             `
-                                                <iframe src="" class="frame"></iframe>
+                                                <iframe src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1" class="frame"></iframe>
                                                 <div class="r">
                                                     <i class="fa-solid fa-rotate-right"></i>
                                                 </div>
@@ -89,3 +89,6 @@ const getSearchSuggestions = (e) =>
         return suggestions.slice(0, 10);
     })
     .catch((error) => (console.error(error), []));
+
+const getSearchPage = (e) => 
+    fetch()
