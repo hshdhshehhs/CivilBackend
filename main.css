@@ -154,4 +154,78 @@ body
             }
         }
     }
+    .heroSettings
+    {
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        top: 25%;
+        left: 26%;
+        background-color: #414142;
+        border-radius: 35px;
+        width: 50%;
+        height: 70%;
+        .cloak
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: transparent;
+            border: none;
+            border-radius: 0px;
+            width: 100%;
+            height: 100%;
+            p
+            {
+                color: #81d356;
+                font-size: 24px;
+                font-weight: 400;
+                text-transform: lowercase;
+                font-family: 'Alata', sans-serif;
+            }
+            input
+            {
+                padding: 0 24px;
+                background-color: #4319a5dc;
+                border: none;
+                border-radius: 45px;
+                color: #81d356;
+                font-size: 20px;
+                font-weight: 400;
+                font-family: 'Alata', sans-serif;
+                width: 25%;
+                height: 7%;
+                transition: width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+                &:focus
+                {
+                    outline: none;
+                    border-radius: 50px;
+                    width: 35%;
+                }
+                &::placeholder
+                {
+                    color: #81d356;
+                    font-size: 20px;
+                    font-weight: 400;
+                    font-family: 'Alata', sans-serif;
+                }
+            }
+            i
+            {
+                padding: 17px;
+                background-color: #111;
+                border-radius: 50%;
+                color: #81d356;
+                font-size: 32px;
+                width: 64px;
+                height: 64px;
+            }
+        }
+    }
 }

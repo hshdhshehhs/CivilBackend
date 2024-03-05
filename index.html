@@ -22,8 +22,14 @@
                 <input type="text" placeholder="Search" class="urlInput">
             </div>
 
-            <i class="fa-solid fa-gear"></i>
+            <i class="fa-solid fa-gear">
         </div>
+
+        <script>
+            document.querySelector('.header i').addEventListener('click', () => {
+                window.location.href = '/settings.html';
+            });
+        </script>
 
         <ul class="suggestions"></ul>
 
