@@ -41,8 +41,6 @@ urlInput.addEventListener("input", () => {
                                                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                                                 <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
                                                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-                                                <script src="https://unpkg.com/@ungap/custom-elements@1.3.0/min.js"></script>
-                                                <script src="./assets/js/detour.js"></script>
                                             `;
 
                                         x.document.body.innerHTML = 
@@ -65,7 +63,7 @@ urlInput.addEventListener("input", () => {
                                                 const q = e.target.getAttribute("href");
                                                 x.location.href = "q";
 
-                                                if (window.location.href != window.location.origin && window.location.href.includes("securly.com")) {
+                                                if (x.document.readyState === 'complete') {
                                                     x.document.querySelector('iframe').src = window.location.href;
                                                 }
                                             }
