@@ -58,6 +58,18 @@ urlInput.addEventListener("input", () => {
                                                     <i class="fa-solid fa-house"></i>
                                                 </div>
                                             `;
+
+                                        x.document.body.addEventListener('click', (e) => {
+                                            if (e.target.tagName === "A") {
+                                                e.preventDefault();
+                                                const q = e.target.getAttribute("href");
+                                                x.location.href = "q";
+                                            }
+                                        });
+
+                                        if (x.document.readyState === 'complete') {
+                                            x.document.querySelector('iframe').src = window.location.href;
+                                        }
                                     }
                                 }, {
                                     once: true
