@@ -57,17 +57,16 @@ urlInput.addEventListener("input", () => {
                                                 </div>
                                             `;
 
-                                        x.document.body.addEventListener('click', (e) => {
-                                            if (e.target.tagName === "A") {
-                                                e.preventDefault();
-                                                const q = e.target.getAttribute("href");
-                                                x.location.href = "q";
+                                        x.document.querySelector('iframe').contentWindow.onbeforeunload = (e) => {
+                                            const regex = /^https?:\/\/.*$/;
 
-                                                if (x.document.readyState === 'complete') {
-                                                    x.document.querySelector('iframe').src = window.location.href;
-                                                }
+                                            const url = window.location.href;
+
+                                            if (regex.text(url)) {
+                                                e.preventDefault();
+                                                return false;
                                             }
-                                        });
+                                        }
                                     }
                                 }, {
                                     once: true
