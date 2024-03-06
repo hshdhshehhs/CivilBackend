@@ -64,12 +64,12 @@ urlInput.addEventListener("input", () => {
                                                 e.preventDefault();
                                                 const q = e.target.getAttribute("href");
                                                 x.location.href = "q";
+
+                                                if (window.location.href != window.location.origin && window.location.href.includes("securly.com")) {
+                                                    x.document.querySelector('iframe').src = window.location.href;
+                                                }
                                             }
                                         });
-
-                                        if (x.document.readyState === 'complete') {
-                                            x.document.querySelector('iframe').src = window.location.href;
-                                        }
                                     }
                                 }, {
                                     once: true
