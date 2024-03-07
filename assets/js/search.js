@@ -57,7 +57,7 @@ urlInput.addEventListener("input", () => {
                                                 </div>
                                             `;
                                         
-                                        x.document.querySelector('iframe').contentWindow.addEventListener('load', (e) => {
+                                        x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', (e) => {
                                             if (x.document.querySelector('iframe').contentWindow.location.hostname === "securly.com") {
                                                 e.preventDefault();
                                                 return false;
