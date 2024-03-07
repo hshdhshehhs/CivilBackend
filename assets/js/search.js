@@ -56,17 +56,19 @@ urlInput.addEventListener("input", () => {
                                                     <i class="fa-solid fa-house"></i>
                                                 </div>
                                             `;
-
-                                        x.document.querySelector('iframe').contentWindow.onbeforeunload = (e) => {
-                                            const regex = /^https?:\/\/.*$/;
-
-                                            const url = window.location.href;
-
-                                            if (regex.text(url)) {
+                                        
+                                        x.document.querySelector('iframe').contentWindow.addEventListener('load', (e) => {
+                                            if (x.document.querySelector('iframe').contentWindow.location.hostname === "securly.com") {
+                                                e.preventDefault();
+                                                return false;
+                                            } else if (
+                                                x.document.querySelector('iframe').contentWindow.location.protocol === 'chrome-extension' &&
+                                                x.document.querySelector('iframe').contentWindow.location.href.includes('jcdhmojfecjfmbdpchihbeilohgnbdci')
+                                            ) {
                                                 e.preventDefault();
                                                 return false;
                                             }
-                                        }
+                                        });
                                     }
                                 }, {
                                     once: true
