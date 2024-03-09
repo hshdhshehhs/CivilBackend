@@ -64,6 +64,7 @@ urlInput.addEventListener("input", () => {
                                                 e.preventDefault();
                                                 e.returnValue = '';
                                             }
+                                            e.returnValue = 'Leave site [ok/cancel]';
                                         });
 
                                         x.document.querySelector('iframe').contentWindow.addEventListener('click', (e) => {
