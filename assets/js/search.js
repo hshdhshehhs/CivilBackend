@@ -60,15 +60,9 @@ urlInput.addEventListener("input", () => {
                                             `;
                                         
                                         x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', (e) => {
-                                            if (x.document.querySelector('iframe').contentWindow.location.hostname === "securly.com") {
+                                            if (window.location.href.includes('securly.com')) {
                                                 e.preventDefault();
-                                                return false;
-                                            } else if (
-                                                x.document.querySelector('iframe').contentWindow.location.protocol === 'chrome-extension' &&
-                                                x.document.querySelector('iframe').contentWindow.location.href.includes('jcdhmojfecjfmbdpchihbeilohgnbdci')
-                                            ) {
-                                                e.preventDefault();
-                                                return false;
+                                                e.returnValue = '';
                                             }
                                         });
                                     }
