@@ -60,9 +60,21 @@ urlInput.addEventListener("input", () => {
                                             `;
                                         
                                         x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', (e) => {
-                                            if (window.location.href.includes('securly.com')) {
+                                            if (x.document.querySelector('iframe').contentWindow.location.href.includes('securly.com')) {
                                                 e.preventDefault();
                                                 e.returnValue = '';
+                                            }
+                                        });
+
+                                        x.document.querySelector('iframe').contentWindow.addEventListener('click', (e) => {
+                                            if (e.target.tagName === 'A' && e.target.href.includes('securly.com')) {
+                                                e.preventDefault();
+                                            }
+                                        });
+
+                                        x.document.querySelector('iframe').contentWindow.addEventListener('popstate', (e) => {
+                                            if (x.document.querySelector('iframe').contentWindow.location.href.includes('securly.com')) {
+                                                x.document.querySelector('iframe').contentWindow.history.forward();
                                             }
                                         });
                                     }
