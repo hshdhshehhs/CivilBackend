@@ -28,7 +28,7 @@ function processURL(value, path) {
     }
 
     sessionStorage.setItem('goURL', __uv$config.encodeUrl(url));
-    const dy = localStorage.getItem('misc');
+    const dy = localStorage.getItem('document');
 
     if (path) {
         location.href = path;
