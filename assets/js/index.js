@@ -33,9 +33,9 @@ function processURL(value, path) {
     if (path) {
         location.href = path;
     } else if (dy === 'true') {
-        window.location.href = '/' + __uv$config.encodeUrl(url);
+        window.location.href = '/document/' + __uv$config.encodeUrl(url);
     } else {
-        window.location.href = '/' + __uv$config.encodeUrl(url);
+        window.location.href = '/document/period1/' + __uv$config.encodeUrl(url);
     }
 }
 
