@@ -9,5 +9,10 @@
                 }
             ]
         }
+    ],
+    "functions": [
+        {
+            "main.[jt]s": { "runtime": "vercel-deno@3.0.4" }
+        }
     ]
 }

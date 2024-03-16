@@ -1,3 +1,5 @@
+#!/usr/bin/env deno run --allow-net
+
 import http from 'node:https';
 import { createBareServer } from 'npm:@tomphttp/bare-server-node';
 import express from 'npm:express';
