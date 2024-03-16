@@ -4,8 +4,8 @@ self.__uv$config = {
     bare: '/depo/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
-    handler: './handler.js',
-    bundle: './bundle.js',
-    config: './config.js',
-    sw: './sw.js',
+    handler: '/js/handler.js',
+    bundle: '/js/bundle.js',
+    config: '/js/config.js',
+    sw: '/js/sw.js',
 };
