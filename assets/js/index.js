@@ -10,7 +10,7 @@ const inp = document.querySelector('div.header input');
 const a = document.querySelectorAll('.suggestions li a');
 
 inp.addEventListener('keydown', (e, path) => {
-        if (e.keyCode === 13) {
+        if (e.key === 'Enter') {
             if (inp.value.match(/^http(s?):\/\//) || inp.value.includes('.') && inp.value.substring(0, 1) !== '') {
                 return true;
             }
