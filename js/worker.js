@@ -1,8 +1,8 @@
-importScripts('./misc/config.js');
-importScripts('./misc/worker.js');
-importScripts(__uv$config.sw ||'./sw.js');
-importScripts('./bundle.js');
-importScripts('./config.js');
+importScripts('../assets/js/misc/config.js');
+importScripts('../assets/js/misc/worker.js');
+importScripts(__uv$config.sw ||'../assets/js/sw.js');
+importScripts('../assets/js/bundle.js');
+importScripts('../assets/js/config.js');
 
 const uv = new UVServiceWorker();
 const dynamic = new Dynamic();
