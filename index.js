@@ -1,10 +1,11 @@
-window.addEventListener('load', () => {
-    if ('serviceWorker' in navigator) {
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
         navigator.serviceWorker.register('/worker.js', {
             scope: '/'
         });
-    }
-});
+    });
+}
 
 const inp = document.querySelector('.urlInput');
 
