@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./js/worker.js', {
+        navigator.serviceWorker.register('/document/worker.js', {
             scope: '/document/'
         });
     }
