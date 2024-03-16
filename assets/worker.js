@@ -8,7 +8,7 @@ const uv = new UVServiceWorker();
 const dynamic = new Dynamic();
 
 let userKey = new URL(location).searchParams.get('userkey');
-self.dynamic = dy;
+self.dynamic = dynamic;
 
 self.addEventListener('fetch', (e) => {
     e.respondWith(
