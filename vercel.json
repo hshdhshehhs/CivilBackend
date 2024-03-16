@@ -10,9 +10,7 @@
             ]
         }
     ],
-    "functions": [
-        {
+    "functions": {
             "main.js": { "runtime": "vercel-deno@3.0.4" }
-        }
-    ]
+    }
 }
