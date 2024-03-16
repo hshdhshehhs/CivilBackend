@@ -1,0 +1,13 @@
+{
+    "headers": [
+        {
+            "source": "/assets/js/worker.js",
+            "headers": [
+                {
+                    "key": "Service-Worker-Allowed",
+                    "value": "/document/"
+                }
+            ]
+        }
+    ]
+}
