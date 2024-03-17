@@ -4,7 +4,7 @@ import {
 } from "https://deno.land/x/oak@v13.2.5/mod.ts";
 import {
     createBareServer
-} from 'npm:@tomphttp/bare-server-node';
+} from 'https://cdn.jsdelivr.net/npm/@tomphttp/bare-server-node';
 const app = new Application();
 const bareServer = createBareServer('/depo/');
 const PORT = Deno.env.get('PORT') || 8000;
@@ -17,7 +17,7 @@ app.addEventListener('listen', () => {
     console.log(`Running at http://localhost:${PORT}`);
 });
 
-await app.listen(`:${PORT}`);
+await app.listen(PORT);
 
 bareServer.on('request', (req, res) => {
     if (bareServer.shouldRoute(req)) {
