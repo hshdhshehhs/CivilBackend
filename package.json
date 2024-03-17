@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "build": "npx deno-bin run --allow-read --allow-env --allow-net ./main.mjs"
+    }
+}
