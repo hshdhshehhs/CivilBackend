@@ -1,10 +1,10 @@
 import {
     Application,
     Router
-} from "https://deno.land/x/oak@v13.2.5/mod.ts";
+} from 'oak';
 import {
     createBareServer
-} from 'npm:@tomphttp/bare-server-node';
+} from 'tomp';
 const app = new Application();
 const bareServer = createBareServer('/depo/');
 const PORT = Deno.env.get('PORT') || 8000;
