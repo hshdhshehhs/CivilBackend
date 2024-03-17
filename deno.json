@@ -1,6 +1,0 @@
-{
-    "imports": {
-        "oak": "https://deno.land/x/oak@v13.2.5/mod.ts",
-        "tomp": "npm:@tomphttp/bare-server-node@2.0.3"
-    }
-}
