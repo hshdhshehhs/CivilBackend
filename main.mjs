@@ -4,7 +4,7 @@ import {
 } from "https://deno.land/x/oak@v13.2.5/mod.ts";
 import {
     createBareServer
-} from 'https://cdn.jsdelivr.net/npm/@tomphttp/bare-server-node';
+} from 'https://cdn.jsdelivr.net/npm/@tomphttp/bare-server-node@2.0.3/dist/createServer.js';
 const app = new Application();
 const bareServer = createBareServer('/depo/');
 const PORT = Deno.env.get('PORT') || 8000;
