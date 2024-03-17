@@ -17,7 +17,7 @@ app.addEventListener('listen', () => {
     console.log(`Running at http://localhost:${PORT}`);
 });
 
-await app.listen(PORT);
+await app.listen(`:${PORT}`);
 
 bareServer.on('request', (req, res) => {
     if (bareServer.shouldRoute(req)) {
