@@ -13,6 +13,8 @@ const app = new Application();
 const bareServer = createBareServer('/depo/');
 const PORT = Deno.env.get('PORT') || 8080;
 
+const router = new Router();
+
 if (config.challenge) {
     console.log('Password protection enabled, usernames: ' + Object.keys(config.users));
     console.log('Passwords: ' + Object.values(config.users));
@@ -37,8 +39,6 @@ if (config.routes !== false) {
         });
     }); 
 }
-
-const router = new Router();
 
 app.use(router.routes());
 
