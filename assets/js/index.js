@@ -31,9 +31,9 @@ inp.addEventListener('keydown', (e, path) => {
             if (path) {
                 location.href = path;
             } else if (doc === 'true') {
-                window.location.href = '/document' + __uv$config.encodeUrl(url);
+                window.location.href = '/depo/period2/' + __uv$config.encodeUrl(url);
             } else {
-                window.location.href = '/document/period1/' + __uv$config.encodeUrl(url);
+                window.location.href = '/depo/' + __uv$config.encodeUrl(url);
             }
         }
 });
