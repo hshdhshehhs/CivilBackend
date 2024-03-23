@@ -7,7 +7,7 @@ import {
 } from 'npm:@tomphttp/bare-server-node';
 const app = new Application();
 const bareServer = createBareServer('/depo/');
-const PORT = Deno.env.get('PORT') || 8000;
+const PORT = Deno.env.get('PORT') || 8080;
 
 const router = new Router();
 
