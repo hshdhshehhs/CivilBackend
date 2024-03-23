@@ -4,7 +4,7 @@ import {
 } from "https://deno.land/x/oak@v13.2.5/mod.ts";
 import {
     createBareServer
-} from "https://dev.jspm.io/@tomphttp/bare-server-node/dist/createServer.js";
+} from "npm:@tomphttp/bare-server-node";
 import { basicAuth } from "https://deno.land/x/basic_auth@v1.1.1/mod.ts";
 import config from './config.mjs';
 import { join } from 'https://deno.land/std@0.220.1/path/mod.ts';
