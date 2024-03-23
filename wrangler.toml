@@ -1,0 +1,4 @@
+name = "civil-proxy"
+main = "./main.mjs"
+compatibility_date = "2022-07-12"
+compatibility_flags = [ "nodejs_compat" ]
