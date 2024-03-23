@@ -1,6 +1,0 @@
-{
-    "scripts": {
-        "deploy:vercel": "curl -fsSL https://deno.land/x/install/install.sh | sh && /vercel/.deno/bin/deno run --allow-read --allow-env --allow-net ./main.mjs",
-        "deploy:cp": "curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno run --allow-read --allow-env --allow-net ./main.mjs"
-    }
-}
