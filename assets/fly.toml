@@ -1,1 +1,12 @@
 primary_region = "sea"
+
+[[services]]
+  internal_port = 8081
+
+[[services.ports]]
+  handlers = ["http"]
+  port = 80
+  force_https = true  # optional
+[[services.ports]]
+  handlers = ["tls", "http"]
+  port = "443"
