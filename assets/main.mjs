@@ -7,8 +7,8 @@ import {
 } from 'npm:@tomphttp/bare-server-node';
 import { basicAuth } from "https://deno.land/x/basic_auth@v1.1.1/mod.ts";
 import config from './config.mjs';
-import { join } from 'https://deno.land/std@0.220.1/path/mod.ts';
 import { serveFile } from 'https://deno.land/std@0.220.1/http/file_server.ts';
+import { readFile } from 'https://deno.land/std@0.220.1/fs/mod.ts';
 const app = new Application();
 const bareServer = createBareServer('/depo/');
 const PORT = Deno.env.get('PORT') || 8080;
@@ -34,8 +34,15 @@ if (config.routes !== false) {
     ];
 
     routes.forEach((route) => {
-        router.get(route.path, (ctx) => {
-            serveFile(ctx, route.file);
+        router.get(route.path, async (ctx) => {
+            try {
+                const fileContent = await Deno.readFile(route.file);
+                ctx.response.body = new TextDecoder().decode(fileContent);
+                ctx.response.type = 'html';
+            } catch (_err) {
+                ctx.response.status = 404;
+                ctx.response.body = `Unable to find file: ${route.file}`;
+            }
         });
     });
 }
