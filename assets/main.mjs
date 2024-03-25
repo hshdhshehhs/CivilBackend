@@ -29,7 +29,7 @@ if (config.challenge) {
 
 if (config.routes !== false) {
     const routes = [
-        { path: '/home', file: '/index.html' },
+        { path: '/', file: '/index.html' },
         { path: '/settings', file: '/settings.html' }
     ];
 
