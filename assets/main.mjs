@@ -29,8 +29,8 @@ if (config.challenge) {
 
 if (config.routes !== false) {
     const routes = [
-        { path: '/', file: join(Deno.cwd(), 'index.html') },
-        { path: '/settings', file: join(Deno.cwd(), 'settings.html') }
+        { path: '/', file: join('index.html') },
+        { path: '/settings', file: join('settings.html') }
     ];
 
     routes.forEach((route) => {
