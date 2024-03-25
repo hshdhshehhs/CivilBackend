@@ -29,13 +29,13 @@ if (config.challenge) {
 
 if (config.routes !== false) {
     const routes = [
-        { path: '/', file: 'index.html' },
-        { path: '/settings', file: 'settings.html' }
+        { path: '/', file: 'assets/index.html' },
+        { path: '/settings', file: 'assets/settings.html' }
     ];
 
     routes.forEach((route) => {
         router.get(route.path, (ctx) => {
-            serveFile(ctx, join(__dirname, 'assets/', route.file));
+            serveFile(ctx, join(__dirname, route.file));
         });
     }); 
 }
