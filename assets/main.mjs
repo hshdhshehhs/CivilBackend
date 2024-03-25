@@ -35,7 +35,7 @@ if (config.routes !== false) {
 
     routes.forEach((route) => {
         router.get(route.path, (ctx) => {
-            serveFile(ctx, join(__dirname, 'assets', route.file));
+            serveFile(ctx, join(__dirname, 'assets/', route.file));
         });
     }); 
 }
