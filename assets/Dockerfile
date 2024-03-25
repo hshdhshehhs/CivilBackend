@@ -1,5 +1,5 @@
 FROM denoland/deno:latest
 
-COPY . .
+COPY assets .
 
-CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "/assets/main.mjs"]
+CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "main.mjs"]
