@@ -93,10 +93,6 @@ if (config.routes !== false) {
         bareServer.routeRequest(ctx.request, ctx.response);
     });
 
-    router.get('/document/', (ctx) => {
-        bareServer.routeRequest(ctx.request, ctx.response);
-    });
-
     router.get('/sw.js', async (ctx) => {
         const fileContent = await Deno.readFile('src/sw.js');
         ctx.response.body = new TextDecoder().decode(fileContent);
@@ -104,11 +100,12 @@ if (config.routes !== false) {
         ctx.response.headers.set('Cache-Control', 'max-age=0, must-revalidate');
     });
 
-    router.get('/document/:encodedUrl', (ctx) => {
-        const encodedUrl = ctx.params.encodedUrl;
-        const url = new URL(ctx.request.url);
-        url.searchParams.set('encodedUrl', encodedUrl);
-        ctx.response.redirect(url.toString());
+    router.get('/document/:encodedUrl', async (ctx) => {
+        const enc = ctx.params.encodedUrl;
+        const url = new URL(`https://civil-1.3.us-1.fl0.io/document/${enc}`);
+        const res = await fetch(url.toString());
+        const body = res.text();
+        ctx.response.body = body;
     });
 }
 
