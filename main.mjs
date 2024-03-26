@@ -103,6 +103,13 @@ if (config.routes !== false) {
         ctx.response.type = 'js';
         ctx.response.headers.set('Cache-Control', 'max-age=0, must-revalidate');
     });
+
+    router.get('/document/:encodedUrl', (ctx) => {
+        const encodedUrl = ctx.params.encodedUrl;
+        const url = new URL(ctx.request.url);
+        url.searchParams.set('encodedUrl', encodedUrl);
+        ctx.response.redirect(url.toString());
+    });
 }
 
 app.use(router.routes());
