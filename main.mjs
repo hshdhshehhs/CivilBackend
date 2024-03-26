@@ -27,8 +27,8 @@ if (config.challenge) {
 
 if (config.routes !== false) {
     const routes = [
-        { path: '/', file: 'assets/index.html' },
-        { path: '/settings', file: 'assets/settings.html' }
+        { path: '/', file: 'src/assets/index.html' },
+        { path: '/settings', file: 'src/assets/settings.html' }
     ];
 
     routes.forEach((route) => {
