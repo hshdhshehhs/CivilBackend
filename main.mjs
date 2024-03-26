@@ -103,9 +103,13 @@ if (config.routes !== false) {
     router.get('/document/:encodedUrl', async (ctx) => {
         const enc = ctx.params.encodedUrl;
         const url = new URL(`https://civil-1.3.us-1.fl0.io/document/${enc}`);
-        const res = await fetch(url.toString());
-        const body = res.text();
-        ctx.response.body = body;
+        try {
+            const res = await fetch(url.toString());
+            const body = new TextDecoder().decode(await res.arrayBuffer());
+            ctx.response.body = body;
+        } catch (err) {
+            ctx.response.body = `Unable to display response body: ${err.message}`;
+        }
     });
 }
 
