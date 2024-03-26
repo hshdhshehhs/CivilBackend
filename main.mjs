@@ -42,7 +42,7 @@ if (config.routes !== false) {
         { path: '/js/config.js', file: 'src/assets/js/config.js' },
         { path: '/js/sw.js', file: 'src/assets/js/sw.js' },
         { path: '/js/misc/handler.js', file: 'src/assets/js/misc/handler.js' },
-        { path: '/js/misc/client.js', file: 'src/assets/js/misc/client.js' }
+        { path: '/js/misc/client.js', file: 'src/assets/js/misc/client.js' },
     ];
 
     routes.forEach((route) => {
