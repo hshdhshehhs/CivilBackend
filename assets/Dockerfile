@@ -4,9 +4,9 @@ CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "/usr/share/ng
 
 FROM nginx:latest
 
-COPY . /usr/share/nginx/html
+COPY assets /usr/share/nginx/html
 
-COPY nginx/conf/nginx.conf /etc/nginx/nginx.conf
+COPY assets/nginx/conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
