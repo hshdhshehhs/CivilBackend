@@ -101,6 +101,7 @@ if (config.routes !== false) {
         const fileContent = await Deno.readFile('src/sw.js');
         ctx.response.body = new TextDecoder().decode(fileContent);
         ctx.response.type = 'js';
+        ctx.response.headers.set('Cache-Control', 'max-age=0, must-revalidate');
     });
 }
 
