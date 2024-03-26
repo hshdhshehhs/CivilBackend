@@ -28,8 +28,21 @@ if (config.challenge) {
 if (config.routes !== false) {
     const routes = [
         { path: '/', file: 'src/index.html' },
-        { path: '/settings', file: 'src/settings.html' },
-        { path: '/sw.js', file: 'src/sw.js' }
+        { path: '/settings', file: 'src/settings.html' }
+    ];
+
+    const jsRoutes = [
+        { path: 'handler.js', file: 'src/assets/js/handler.js' },
+        { path: 'bundle.js', file: 'src/assets/js/bundle.js' },
+        { path: 'config.js', file: 'src/assets/js/config.js' },
+        { path: 'sw.js', file: 'src/assets/js/sw.js' },
+        { path: '/js/misc/config.js', file: 'src/assets/js/misc/config.js' },
+        { path: '/js/misc/worker.js', file: 'src/assets/js/misc/worker.js' },
+        { path: '/js/bundle.js', file: 'src/assets/js/bundle.js' },
+        { path: '/js/config.js', file: 'src/assets/js/config.js' },
+        { path: '/js/sw.js', file: 'src/assets/js/sw.js' },
+        { path: '/js/misc/handler.js', file: 'src/assets/js/misc/handler.js' },
+        { path: '/js/misc/client.js', file: 'src/assets/js/misc/client.js' }
     ];
 
     routes.forEach((route) => {
@@ -41,6 +54,19 @@ if (config.routes !== false) {
             } catch (_err) {
                 ctx.response.status = 404;
                 ctx.response.body = `Unable to find file: ${route.file}`;
+            }
+        });
+    });
+
+    jsRoutes.forEach((jsRoute) => {
+        router.get(jsRoute.path, async (ctx) => {
+            try {
+                const fileContent = await Deno.readFile(jsRoute.file);
+                ctx.response.body = new TextDecoder().decode(fileContent);
+                ctx.response.type = 'js';
+            } catch (_err) {
+                ctx.response.status = 404;
+                ctx.response.body = `Unable to find file: ${jsRoute.file}`;
             }
         });
     });
@@ -69,6 +95,12 @@ if (config.routes !== false) {
 
     router.get('/document/', (ctx) => {
         bareServer.routeRequest(ctx.request, ctx.response);
+    });
+
+    router.get('/sw.js', async (ctx) => {
+        const fileContent = await Deno.readFile('src/sw.js');
+        ctx.response.body = new TextDecoder().decode(fileContent);
+        ctx.response.type = 'js';
     });
 }
 
