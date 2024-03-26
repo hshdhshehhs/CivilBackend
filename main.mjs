@@ -43,6 +43,25 @@ if (config.routes !== false) {
             }
         });
     });
+
+    router.get('/src/assets/:filename', async (ctx) => {
+        const filename = ctx.params.filename;
+        const fileContent = await Deno.readFile(`src/assets/${filename}`);
+        ctx.response.body = new TextDecoder().decode(fileContent);
+        ctx.response.type = 'css' || 'js';
+    });
+
+    router.get('/depo/period2/', (ctx) => {
+        bareServer.routeRequest(ctx.request, ctx.response);
+    });
+
+    router.get('/document/period1/', (ctx) => {
+        bareServer.routeRequest(ctx.request, ctx.response);
+    });
+
+    router.get('/document/', (ctx) => {
+        bareServer.routeRequest(ctx.request, ctx.response);
+    });
 }
 
 app.use(router.routes());
