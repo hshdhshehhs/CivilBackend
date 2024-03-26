@@ -38,7 +38,7 @@ urlInput.addEventListener("input", () => {
                                                 <meta http-equiv="X-Content-Type-Options" content="nosniff">
                                                 <title>Google Docs</title>
                                                 <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x16.png">
-                                                <link rel="stylesheet" type="text/css" href="./blank.css">
+                                                <link rel="stylesheet" type="text/css" href="/src/assets/styles/blank.css">
                                                 <link rel="preconnect" href="https://fonts.googleapis.com">
                                                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                                                 <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">

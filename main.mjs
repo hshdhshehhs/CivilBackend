@@ -44,11 +44,18 @@ if (config.routes !== false) {
         });
     });
 
-    router.get('/src/assets/:filename', async (ctx) => {
+    router.get('/src/assets/styles/:filename', async (ctx) => {
         const filename = ctx.params.filename;
-        const fileContent = await Deno.readFile(`src/assets/${filename}`);
+        const fileContent = await Deno.readFile(`src/assets/styles/${filename}`);
         ctx.response.body = new TextDecoder().decode(fileContent);
-        ctx.response.type = 'css' || 'js';
+        ctx.response.type = 'css';
+    });
+
+    router.get('/src/assets/js/:filename', async (ctx) => {
+        const filename = ctx.params.filename;
+        const fileContent = await Deno.readFile(`src/assets/js/${filename}`);
+        ctx.response.body = new TextDecoder().decode(fileContent);
+        ctx.response.type = 'js';
     });
 
     router.get('/depo/period2/', (ctx) => {
