@@ -6,6 +6,8 @@ FROM nginx:latest
 
 COPY . /usr/share/nginx/html
 
-COPY assets/nginx/conf/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/conf/nginx.conf /etc/nginx/nginx.conf
 
-COPY assets/nginx/conf/mime.types /etc/nginx/mime.types
+COPY nginx/conf/mime.types /etc/nginx/mime.types
+
+CMD ["nginx", "-g", "daemon off;"]
