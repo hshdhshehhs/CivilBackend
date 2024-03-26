@@ -6,4 +6,4 @@ COPY ["deno.json", "./"]
 
 COPY . .
 
-CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "assets/main.mjs"]
+CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "main.mjs"]

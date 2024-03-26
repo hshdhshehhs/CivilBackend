@@ -13,7 +13,7 @@ self.__dynamic$config = {
       ua: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.3'
     },
     assets: {
-      prefix: '/js/misc/',
+      prefix: '/assets/js/misc/',
       files: {
         handler: 'handler.js',
         client: 'client.js',
