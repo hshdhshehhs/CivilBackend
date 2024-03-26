@@ -7,7 +7,6 @@ import {
 } from 'npm:@tomphttp/bare-server-node';
 import { basicAuth } from "https://deno.land/x/basic_auth@v1.1.1/mod.ts";
 import config from './config.mjs';
-import { serveDir } from "https://deno.land/std@0.220.1/http/file_server.ts";
 const app = new Application();
 const bareServer = createBareServer('/depo/');
 const PORT = Deno.env.get('PORT') || 8080;
