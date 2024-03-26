@@ -1,5 +1,11 @@
 FROM denoland/deno:latest
 
-COPY assets .
+CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "/usr/share/nginx/html/main.mjs"]
 
-CMD ["deno", "run", "--allow-read", "--allow-env", "--allow-net", "main.mjs"]
+FROM nginx:latest
+
+COPY . /usr/share/nginx/html
+
+COPY nginx/conf/nginx.conf /etc/nginx/nginx.conf
+
+COPY nginx/conf/mime.types /etc/nginx/mime.types
