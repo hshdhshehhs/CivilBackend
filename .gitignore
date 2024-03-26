@@ -2,4 +2,3 @@
 node_modules/
 .denoflare
 dist/
-nginx/
