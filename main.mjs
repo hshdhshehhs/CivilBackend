@@ -105,9 +105,7 @@ if (config.routes !== false) {
         const url = new URL(`https://civil-1.3.us-1.fl0.io/document/${enc}`);
         try {
             const res = await fetch(url.toString());
-            console.log(`Status: ${res.status}`);
-            console.log(`Headers: ${JSON.stringify(res.headers)}`);
-            const body = await res.text();
+            const body = new TextDecoder().decode(await res.arrayBuffer());
             ctx.response.body = body;
             ctx.response.type = '*';
         } catch (err) {
