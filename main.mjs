@@ -85,6 +85,13 @@ if (config.routes !== false) {
         ctx.response.type = 'js';
     });
 
+    router.get('/src/assets/js/misc/:filename', async (ctx) => {
+        const filename = ctx.params.filename;
+        const fileContent = await Deno.readFile(`src/assets/js/misc/${filename}`);
+        ctx.response.body = new TextDecoder().decode(fileContent);
+        ctx.response.type = 'js';
+    });
+
     router.get('/depo/period2/', (ctx) => {
         bareServer.routeRequest(ctx.request, ctx.response);
     });
