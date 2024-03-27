@@ -107,6 +107,7 @@ if (config.routes !== false) {
             const res = await fetch(url.toString());
             const body = new TextDecoder().decode(await res.arrayBuffer());
             ctx.response.body = body;
+            ctx.response.type = '*';
         } catch (err) {
             ctx.response.body = `Unable to display response body: ${err.message}`;
         }
