@@ -82,10 +82,6 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', (e) => {
                                             1;
-                                            
-                                            if ('A' === e.target.tagName &&(x.document.querySelector('iframe').contentWindow.location.href.includes('securly.com') || x.document.querySelector('iframe').contentWindow.location.href.includes('jcdhmojfecjfmbdpchihbeilohgnbdci'))) {
-                                                1;
-                                            }
                                         });
                                     }
                                 }, {
