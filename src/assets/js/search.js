@@ -86,9 +86,22 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', beforeUnload());
 
-                                        x.document.querySelector('iframe').contentWindow.document.querySelectorAll('a').addEventListener('click', () => {
-                                            x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', beforeUnload());
-                                        });
+                                        function shouldPreventUrlChange() {
+                                            if (x.document.querySelector('iframe').contentWindow.location.href.includes('securly.com') || x.document.querySelector('iframe').contentWindow.location.href.includes('jcdhmojfecjfmbdpchihbeilohgnbdci')) {
+                                                1;
+                                            }
+                                        }
+
+                                        x.document.querySelector('iframe').contentWindow.document.querySelectorAll('a')
+                                            .forEach((a) => {
+                                                a.addEventListener('click', () => {
+                                                    x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', () => {
+                                                        !beforeUnload();
+
+                                                        shouldPreventUrlChange();
+                                                    });
+                                                });
+                                            });
                                     }
                                 }, {
                                     once: true
