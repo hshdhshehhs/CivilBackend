@@ -49,7 +49,7 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.body.innerHTML = 
                                             `
-                                                <iframe src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1" class="frame"></iframe>
+                                                <iframe is="x-frame-bypass" src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1" class="frame"></iframe>
                                                 <div class="r">
                                                     <i class="fa-solid fa-rotate-right"></i>
                                                 </div>
