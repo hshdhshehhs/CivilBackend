@@ -85,6 +85,12 @@ urlInput.addEventListener("input", () => {
                                         }
 
                                         x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', beforeUnload());
+
+                                        x.document.querySelector('iframe').contentWindow.document.querySelectorAll('a').addEventListener('click', () => {
+                                            x.document.querySelector('iframe').contentWindow.removeEventListener('beforeunload', beforeUnload());
+
+                                            x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', beforeUnload());
+                                        });
                                     }
                                 }, {
                                     once: true
