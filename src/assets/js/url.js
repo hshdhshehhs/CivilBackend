@@ -4,7 +4,7 @@ const urlRegexp = /https?:\/\/(.+)/;
 
 input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-        if (url.match(urlRegexp) || url.startsWith('https://') || url.includes('.') || url.substring(0, 1) === '') {
+        if (url.match(urlRegexp) || url.includes('.') || url.substring(0, 1) === '') {
             const g = window.open();
 
             g.document.head.innerHTML = 
@@ -37,7 +37,7 @@ input.addEventListener('keydown', (e) => {
                         <i class="fa-solid fa-house"></i>
                     </div>
                 `;
-        } else if (url.match(urlRegexp) || !url.startsWith('https://') || url.includes('.') || url.substring(0, 1) === '') {
+        } else if (url.match(urlRegexp) || url.includes('.')) {
             const g = window.open();
 
             g.document.head.innerHTML = 
