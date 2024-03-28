@@ -96,9 +96,7 @@ urlInput.addEventListener("input", () => {
                                             .forEach((a) => {
                                                 a.addEventListener('click', () => {
                                                     x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', () => {
-                                                        !beforeUnload();
-
-                                                        shouldPreventUrlChange();
+                                                        beforeUnload();
                                                     });
                                                 });
                                             });
