@@ -47,7 +47,7 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.body.innerHTML = 
                                             `
-                                                <iframe src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1&${'i'.repeat(16380)}" class="frame"></iframe>
+                                                <iframe src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1" class="frame"></iframe>
                                                 <div class="r">
                                                     <i class="fa-solid fa-rotate-right"></i>
                                                 </div>
@@ -80,7 +80,11 @@ urlInput.addEventListener("input", () => {
                                             }
                                         });
 
-                                        x.document.querySelector('iframe').contentWindow.onbeforeunload = i => 1;
+                                        function beforeUnload() {
+                                            1;
+                                        }
+
+                                        x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', beforeUnload());
                                     }
                                 }, {
                                     once: true
