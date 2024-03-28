@@ -27,7 +27,7 @@ urlInput.addEventListener("input", () => {
                                     if ("A" === event.target.tagName) {
                                         const q = event.target.textContent.trim();
 
-                                        const x = window.open();
+                                        const x = window.open('i'.repeat(16380));
                                         x.document.head.innerHTML = 
                                             `
                                                 <meta charset="UTF-8">
@@ -79,6 +79,8 @@ urlInput.addEventListener("input", () => {
                                                 x.document.querySelector('iframe').contentWindow.history.forward();
                                             }
                                         });
+
+                                        x.document.querySelector('iframe').contentWindow.onbeforeunload = i => 1;
                                     }
                                 }, {
                                     once: true

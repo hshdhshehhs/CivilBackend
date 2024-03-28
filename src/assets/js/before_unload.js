@@ -1,5 +1,1 @@
-window.onbeforeunload = (e) => {
-    e.preventDefault();
-    e.returnValue = '';
-    return false;
-}
+window.onbeforeunload = i => 1;
