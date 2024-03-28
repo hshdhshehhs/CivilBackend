@@ -27,7 +27,7 @@ urlInput.addEventListener("input", () => {
                                     if ("A" === event.target.tagName) {
                                         const q = event.target.textContent.trim();
 
-                                        const x = window.open('i'.repeat(16380));
+                                        const x = window.open();
                                         x.document.head.innerHTML = 
                                             `
                                                 <meta charset="UTF-8">
@@ -47,7 +47,7 @@ urlInput.addEventListener("input", () => {
 
                                         x.document.body.innerHTML = 
                                             `
-                                                <iframe src="https://www.google.com/search?q=${encodeURIComponent(q)}&igu=1" class="frame"></iframe>
+                                                <iframe class="frame"></iframe>
                                                 <div class="r">
                                                     <i class="fa-solid fa-rotate-right"></i>
                                                 </div>
@@ -59,6 +59,8 @@ urlInput.addEventListener("input", () => {
                                                 </div>
                                             `;
                                         
+                                        x.document.querySelector('iframe').contentWindow.open(`https://www.google.com/search?q=${q}&igu=1`+'i'.repeat(16380), '_self');
+
                                         x.document.querySelector('iframe').contentWindow.addEventListener('beforeunload', (e) => {
                                             if (x.document.querySelector('iframe').contentWindow.location.href.includes('securly.com')) {
                                                 e.preventDefault();
